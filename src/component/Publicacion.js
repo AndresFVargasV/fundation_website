@@ -1,7 +1,7 @@
 import React from "react";
 import "../stylesheets/Publicacion.css";
 
-function Publicacion() {
+function Publicacion(props) {
   return (
     <div className="contenedor-publicaciones">
 
@@ -12,9 +12,9 @@ function Publicacion() {
 
       <div className="contenedor-texto-publicacion">
 
-        <p className="nombre-publicacion">Primera Publicación.</p>
-        <p className="nombre-publicador">Juan Carlos Cardenas.</p>
-        <p className="Texto-publicacion">Hoy fue un buen día.</p>
+        <p className="nombre-publicacion">{props.nombrePublicacion}</p>
+        <p className="nombre-publicador">{props.nombre}</p>
+        <p className="texto-publicacion">{props.contenido}</p>
       </div>
     </div>
   );

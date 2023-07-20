@@ -8,7 +8,12 @@ function App() {
       <div className='contenedor-principal'>
         <h1>Publicaciones</h1>
 
-        <Publicacion />
+        <Publicacion 
+          nombrePublicacion='Hablemos de Colombia'
+          nombre='Juan Carlos Bodoque'
+          contenido='Lorem ipsum dolor sit amet consectetur adipisicing elit.'
+        />
+        
       </div>
       
     </div>

@@ -3,9 +3,10 @@
   padding: 0;
 }
 
-html, body {
+html, 
+body {
   font-size: 18px;
-  background-color: blanchedalmond;
+  background-color: aliceblue;
 } 
 
 h1 {
