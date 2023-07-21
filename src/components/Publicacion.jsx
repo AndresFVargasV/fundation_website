@@ -2,17 +2,21 @@ import "../assets/css/Publicacion.css";
 import imagen from "../assets/img/bolamundo.jpg";
 function Publicacion() {
   return (
-    <div className="contenedor-publicaciones">
-      <img
-        className="imagen-publicacion"
-        src={imagen}
-        alt="imagen de la publicacion"
-      />
-
-      <div className="contenedor-texto-publicacion">
-        <p className="nombre-publicacion">Primera Publicación.</p>
-        <p className="nombre-publicador">Juan Carlos Cardenas.</p>
-        <p className="Texto-publicacion">Hoy fue un buen día.</p>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-6 mx-auto bg-white rounded-xl shadow-lg">
+      <div className="shrink-0">
+        <img
+          className="h-96 w-96 md:h-auto md:w-full"
+          src={imagen}
+          alt="Publication image"
+        />
+      </div>
+      <div className="text-center">
+        <div className="text-xl font-medium text-black">
+          Primera Publicacion
+        </div>
+        <p className="text-slate-950">You have a new message!</p>
+        <p className="text-slate-950">Juan Carlos Cardenas.</p>
+        <p className="text-slate-950">Hoy fue un buen día.</p>
       </div>
     </div>
   );
