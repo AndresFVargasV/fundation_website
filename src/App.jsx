@@ -1,13 +1,42 @@
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Publicacion from "./components/Publicacion";
-import "./app.css";
+import HomePage from "./pages/HomePage";
+import LoginPage from "./pages/LoginPage";
+import RegisterPage from "./pages/RegisterPage";
+import Root from "./pages/Root";
+import ErrorPage from "./pages/ErrorPage";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Root />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        //path: "/", another way to write it
+        index: true,
+        element: <HomePage />,
+      },
+      {
+        path: "/login",
+        element: <LoginPage />,
+      },
+      {
+        path: "/register",
+        element: <RegisterPage />,
+      },
+      {
+        path: "/publication",
+        element: <Publicacion />,
+      },
+    ],
+  },
+]);
 function App() {
   return (
-    <div className="bg-gray-100 min-h-screen">
-      <div className="container mx-auto py-8">
-        <h1 className="text-3xl font-bold mb-8 text-center">Publicaciones</h1>
-        <Publicacion />
-      </div>
-    </div>
+    <>
+      <RouterProvider router={router} />
+    </>
   );
 }
 
