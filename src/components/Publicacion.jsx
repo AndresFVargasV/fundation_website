@@ -1,5 +1,3 @@
-import "../assets/css/Publicacion.css";
-import imagen from "../assets/img/bolamundo.jpg";
 function Publicacion() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-6 mx-auto bg-white rounded-xl shadow-lg">
