@@ -1,4 +1,10 @@
 import { NavLink } from "react-router-dom";
+import Button from "react-bootstrap/Button";
+import Container from "react-bootstrap/Container";
+import Form from "react-bootstrap/Form";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import NavDropdown from "react-bootstrap/NavDropdown";
 const NavBar = () => {
   const routes = [
     ["Home", "/"],
@@ -6,18 +12,44 @@ const NavBar = () => {
     ["Register", "/register"],
   ];
   return (
-    <nav className="flex sm:justify-center space-x-4 mb-5 mt-5">
-      {routes.map(([title, url]) => (
-        <NavLink
-          to={url}
-          key={title}
-          className="rounded-lg px-3 py-2 text-stone-950 font-medium
-           hover:bg-slate-100 hover:text-slate-900 "
-        >
-          {title}
-        </NavLink>
-      ))}
-    </nav>
+    <Navbar expand="lg" className="bg-body-tertiary">
+      <Container fluid>
+        <Navbar.Brand href="#">Fundacion ACOR</Navbar.Brand>
+        <Navbar.Toggle aria-controls="navbarScroll" />
+        <Navbar.Collapse id="navbarScroll">
+          <Nav className="me-auto my-2 my-lg-0" navbarScroll>
+            <NavLink to="/" className="nav-link">
+              Inicio
+            </NavLink>
+
+            <NavDropdown title="Link" id="navbarScrollingDropdown">
+              <NavLink to="/about" className="dropdown-item">
+                Quienes somos
+              </NavLink>
+
+              <NavDropdown.Item href="#action5">
+                Something else here
+              </NavDropdown.Item>
+            </NavDropdown>
+            <NavLink to="/login" className="nav-link">
+              Iniciar sesión
+            </NavLink>
+            <NavLink to="/register" className="nav-link">
+              Registrarse
+            </NavLink>
+          </Nav>
+          <Form className="d-flex">
+            <Form.Control
+              type="search"
+              placeholder="Buscar"
+              className="me-2"
+              aria-label="Search"
+            />
+            <Button variant="outline-success">Buscar</Button>
+          </Form>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 };
 

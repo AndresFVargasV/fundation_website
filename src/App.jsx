@@ -5,6 +5,7 @@ import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import Root from "./pages/Root";
 import ErrorPage from "./pages/ErrorPage";
+import AboutPage from "./pages/AboutPage";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
       {
         path: "/publication",
         element: <Publicacion />,
+      },
+      {
+        path: "/about",
+        element: <AboutPage />,
       },
     ],
   },
