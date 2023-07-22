@@ -7,6 +7,7 @@ import Root from "./pages/Root";
 import ErrorPage from "./pages/ErrorPage";
 import AboutPage from "./pages/AboutPage";
 
+
 const router = createBrowserRouter([
   {
     path: "/",
