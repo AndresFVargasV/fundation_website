@@ -1,4 +1,4 @@
-import Slide from "../components/Carrusel";
+import Slide from "../components/Slider";
 
 const HomePage = () => {
   return (
