@@ -1,17 +1,29 @@
 import { useForm } from "../hooks/useForm";
 import LoginForm from "../components/LoginForm";
 
+
+
 const LoginPage = () => {
   const [{ email, password }, handleInputChange, reset] = useForm({
     email: "",
     password: "",
   });
 
-  const handlesubmit = (e) => {
+  console.log(email, password);
+  const handlesubmit = async (e) => {
     e.preventDefault();
     reset();
-    console.log(email, password);
+  
+    try {
+      const user = await Login(email, password);
+      
+      console.log('Usuario autenticado:', user);
+    } catch (error) {
+      
+      console.error('Error al iniciar sesión:', error.message);
+    }
   };
+  
   return (
     <>
       <section className="vh-100">
