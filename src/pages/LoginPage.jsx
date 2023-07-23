@@ -9,19 +9,19 @@ const LoginPage = () => {
     password: "",
   });
 
-  console.log(email, password);
+  
   const handlesubmit = async (e) => {
     e.preventDefault();
     reset();
-  
-    try {
+    console.log(email, password);
+    /*     try {
       const user = await Login(email, password);
       
       console.log('Usuario autenticado:', user);
     } catch (error) {
       
       console.error('Error al iniciar sesión:', error.message);
-    }
+    } */
   };
   
   return (
