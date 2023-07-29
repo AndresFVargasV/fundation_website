@@ -6,7 +6,7 @@ const LoginPage = () => {
       <section className="vh-100">
         <div className="container-fluid">
           <div className="row">
-            <div className="col-sm-6 text-black">
+            <div className="col-sm-12 text-black">
               <div className="px-5 ms-xl-4">
                 <i
                   className="fas fa-crow fa-2x me-3 pt-5 mt-xl-4"
@@ -15,17 +15,9 @@ const LoginPage = () => {
                 <span className="h1 fw-bold mb-0">Logo</span>
               </div>
 
-              <div className="d-flex align-items-center h-custom-2 px-5 ms-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5">
+              <div className="d-flex justify-content-center align-items-center h-custom-2 px-5 ms-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5">
                 <LoginForm />
               </div>
-            </div>
-            <div className="col-sm-6 px-0 d-none d-sm-block">
-              <img
-                src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/img3.webp"
-                alt="Login image"
-                className="w-100 vh-100"
-                style={{ objectFit: "cover", objectPosition: "left" }}
-              />
             </div>
           </div>
         </div>

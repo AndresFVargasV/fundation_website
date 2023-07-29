@@ -5,12 +5,12 @@ const LoginForm = () => {
   const {
     register,
     handleSubmit,
-    watch,
     reset,
     formState: { errors },
   } = useForm();
   const onSubmit = handleSubmit((data) => {
     console.log(data);
+    console.log(errors);
     reset();
   });
   return (
@@ -22,7 +22,6 @@ const LoginForm = () => {
 
         <div className="form-outline mb-4">
           <input
-            type="email"
             id="email"
             {...register("email", {
               required: {
@@ -30,7 +29,8 @@ const LoginForm = () => {
                 message: "El correo es requerido",
               },
               pattern: {
-                value: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+                value:
+                  /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,4}))$/,
                 message: "El correo no es válido",
               },
             })}
@@ -58,6 +58,11 @@ const LoginForm = () => {
               },
             })}
           />
+          {errors.password && (
+            <span className="text-danger text-small d-block mb-2">
+              {errors.password.message}
+            </span>
+          )}
           <label className="form-label" htmlFor="password">
             Contraseña
           </label>
@@ -75,7 +80,7 @@ const LoginForm = () => {
           </Link>
         </p>
         <p>
-          ¿No tienes una cuenta?{" "}
+          ¿No tienes una cuenta?
           <Link to="/register" className="link-info">
             Registrate Aquí
           </Link>
