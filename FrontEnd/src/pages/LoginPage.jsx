@@ -1,29 +1,6 @@
-import { useForm } from "../hooks/useForm";
 import LoginForm from "../components/LoginForm";
 
-
-
 const LoginPage = () => {
-  const [{ email, password }, handleInputChange, reset] = useForm({
-    email: "",
-    password: "",
-  });
-
-  
-  const handlesubmit = async (e) => {
-    e.preventDefault();
-    reset();
-    console.log(email, password);
-    /*     try {
-      const user = await Login(email, password);
-      
-      console.log('Usuario autenticado:', user);
-    } catch (error) {
-      
-      console.error('Error al iniciar sesión:', error.message);
-    } */
-  };
-  
   return (
     <>
       <section className="vh-100">
@@ -39,12 +16,7 @@ const LoginPage = () => {
               </div>
 
               <div className="d-flex align-items-center h-custom-2 px-5 ms-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5">
-                <LoginForm
-                  handlesubmit={handlesubmit}
-                  email={email}
-                  password={password}
-                  handleInputChange={handleInputChange}
-                />
+                <LoginForm />
               </div>
             </div>
             <div className="col-sm-6 px-0 d-none d-sm-block">

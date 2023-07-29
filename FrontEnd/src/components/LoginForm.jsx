@@ -1,9 +1,21 @@
 import { Link } from "react-router-dom";
-import PropTypes from "prop-types";
-const LoginForm = ({ handleInputChange, handlesubmit, email, password }) => {
+
+import { useForm } from "react-hook-form";
+const LoginForm = () => {
+  const {
+    register,
+    handleSubmit,
+    watch,
+    reset,
+    formState: { errors },
+  } = useForm();
+  const onSubmit = handleSubmit((data) => {
+    console.log(data);
+    reset();
+  });
   return (
     <>
-      <form style={{ width: "23rem" }} onSubmit={handlesubmit}>
+      <form style={{ width: "23rem" }} onSubmit={onSubmit}>
         <h3 className="fw-normal mb-3 pb-3" style={{ letterSpacing: "1px" }}>
           Iniciar sesión
         </h3>
@@ -12,11 +24,23 @@ const LoginForm = ({ handleInputChange, handlesubmit, email, password }) => {
           <input
             type="email"
             id="email"
-            name="email"
-            value={email}
+            {...register("email", {
+              required: {
+                value: true,
+                message: "El correo es requerido",
+              },
+              pattern: {
+                value: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+                message: "El correo no es válido",
+              },
+            })}
             className="form-control form-control-lg"
-            onChange={handleInputChange}
           />
+          {errors.email && (
+            <span className="text-danger text-small d-block mb-2">
+              {errors.email.message}
+            </span>
+          )}
           <label className="form-label" htmlFor="email">
             Correo
           </label>
@@ -26,10 +50,13 @@ const LoginForm = ({ handleInputChange, handlesubmit, email, password }) => {
           <input
             type="password"
             id="password"
-            name="password"
-            value={password}
             className="form-control form-control-lg"
-            onChange={handleInputChange}
+            {...register("password", {
+              required: {
+                value: true,
+                message: "La contraseña es requerida",
+              },
+            })}
           />
           <label className="form-label" htmlFor="password">
             Contraseña
@@ -56,12 +83,6 @@ const LoginForm = ({ handleInputChange, handlesubmit, email, password }) => {
       </form>
     </>
   );
-};
-LoginForm.propTypes = {
-  handleInputChange: PropTypes.func.isRequired,
-  handlesubmit: PropTypes.func.isRequired,
-  email: PropTypes.string.isRequired,
-  password: PropTypes.string.isRequired,
 };
 
 export default LoginForm;
