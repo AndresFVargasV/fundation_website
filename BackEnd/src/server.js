@@ -14,10 +14,10 @@ app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 
 // Routes
-app.use('/', customerRoutes);
+app.use('/api/task', customerRoutes);
 
 // Static files
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(path.join(__dirname, '../../FrontEnd')));
 
 // Starting the server
 const port = 3000;
