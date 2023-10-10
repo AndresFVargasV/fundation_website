@@ -1,10 +1,10 @@
 const sql = require('mssql');
 
 const dbConfig = {
-  user: 'adminacor',
-  password: 'acor2023*',
-  server: 'adminacor.database.windows.net',
-  database: 'dbacor',
+  user: '',
+  password: '',
+  server: '',
+  database: '',
 };
 
 const pool = new sql.ConnectionPool(dbConfig);
